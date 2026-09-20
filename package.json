@@ -9,12 +9,22 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@tippyjs/react": "^4.2.6",
+    "js-cookie": "^3.0.8",
     "next": "16.2.6",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.80.0",
+    "react-tippy": "^1.4.0",
+    "tippy.js": "^6.3.7",
+    "zod": "^4.4.3",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

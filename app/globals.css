@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'QPC_Hafs';
+  src: url('https://quran.com/fonts/quran/hafs/v2/woff2/qpc_hafs_ver18.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'QPC_Hafs_Bold';
+  src: url('https://quran.com/fonts/quran/hafs/v2/woff2/qpc_hafs_bold_ver18.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-quran {
+  font-family: 'QPC_Hafs_Bold', 'QPC_Hafs', sans-serif !important;
+  direction: rtl;
+  /* التريكة دي بتخلي علامات التشكيل والوقف تترسم فوق الحروف بالظبط بدون ترحيل */
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fontsurahnames {
+  font-family: var(--font-surah-names);
+  font-size: 88px;
+  font-weight: 200;
+}
+
+/* متصفحات Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* متصفحات Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* 1. التنسيق العام والافتراضي لأي تاغ span يتبعت في التفسير */
+.tafsir-content span {
+  font-family: var(--font-cairo), sans-serif;
+  /* الخط الأساسي للتفسير */
+  transition: color 0.3s ease;
+}
+
+/* 2. تخصيص استايل فخم للنصوص والآيات القرآنية */
+.tafsir-content .arabic,
+.tafsir-content .qpc-hafs {
+  font-family: var(--font-amiri), serif;
+  /* خط مصحفي مخصص للآيات */
+  font-size: 1.15rem;
+  line-height: 2;
+}
+
+/* 3. تلوين الكلاسات المعروفة بناءً على طلبك */
+.tafsir-content .brown {
+  @apply text-amber-700 font-bold mx-1;
+  /* بني/ذهبي مصحفي للآيات */
+}
+
+.tafsir-content .blue {
+  @apply text-blue-600 font-semibold block mt-3 mb-1 text-sm md:text-base;
+  /* العناوين الفرعية */
+}
+
+.tafsir-content .red {
+  @apply text-red-600 font-bold;
+  /* الكلمات المفتاحية المشروحة */
+}
+
+.tafsir-content .green {
+  @apply text-green-600 font-bold;
+  /* الكلمات المفتاحية المشروحة */
+}
+
+.hero {
+  background-image: url(../public/hero.png);
+  background-size: cover;
+  /* filter: blur(100); */
 }
