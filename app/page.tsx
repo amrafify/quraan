@@ -8,19 +8,6 @@ export default function Home() {
   const { markSurah, name, nameArbic } = useMarkSurahStore();
   const { pageSruha } = useMarkPageStore();
   const { ayahId } = useMarkAyahStore();
-  const [auto, setauto] = useState(false)
-  const audioRef = useRef(null)
-
-  const toglePlay = () => {
-    if (!audioRef.current) return;
-    if (auto) {
-      audioRef.current.pause()
-      setauto(false)
-    } else {
-      audioRef.current.play();  // تشغيل الصوت
-      setauto(true);
-    }
-  }
 
   return (
     <div className="bg-gray-100 h-screen">
@@ -44,8 +31,6 @@ export default function Home() {
             <h3>{ayahId || 'ayah-1'}</h3>
           </Link>
         </div>
-        <audio ref={audioRef} src="https://audio.qurancdn.com/Alafasy/mp3/114001.mp3">ok</audio>
-        <button onClick={() => toglePlay()}>play</button>
       </div>
     </div>)
 }
