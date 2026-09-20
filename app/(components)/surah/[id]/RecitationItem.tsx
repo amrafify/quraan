@@ -1,7 +1,7 @@
 import React, { SetStateAction } from 'react'
 import { useMarkRecitationStore } from '../../store/uesMarkSurah'
 interface recitationsitem {
-    id: number,
+    id: string,
     style?: string,
     translated_name: {
         name: string
