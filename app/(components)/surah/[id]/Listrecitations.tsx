@@ -5,7 +5,7 @@ import { useMarkRecitationStore } from '../../store/uesMarkSurah'
 import RecitationItem from './RecitationItem'
 
 interface recitationsitem {
-    id: number,
+    id: string,
     style?: string,
     translated_name: {
         name: string
