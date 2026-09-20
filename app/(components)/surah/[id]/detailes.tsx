@@ -44,7 +44,7 @@ export default function Detailes({ params, surahsdd, surahs, surahName, titleSru
 
                     <h3 className='text-center font-bold'>بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</h3>
                     <div className="space-y-4 leading-loose text-xl m-3 text-center">
-                        {surahsdd?.map((surah: surah, i: number) => (
+                        {surahsdd?.map((surah: any, i: number) => (
                             <SurahDe key={surah.id} surah={surah} i={i} />
                         ))}
                     </div>
