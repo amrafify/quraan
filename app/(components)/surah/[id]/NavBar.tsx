@@ -18,7 +18,7 @@ export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idS
     useEffect(() => {
         handlePlaySarheAudio(idSurah, recitationId)
     }, [recitationId])
-    const [audioPlay, setAudioPlay] = useState(null)
+    const [audioPlay, setAudioPlay] = useState<string | undefined>(undefined);
     // sarh audio
     const handlePlaySarheAudio = async (surahId: number, recitationId: number) => {
         const dataAudio = await audioSarhApi(surahId, recitationId)
