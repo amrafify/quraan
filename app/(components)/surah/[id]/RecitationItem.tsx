@@ -11,9 +11,9 @@ interface recitationsData {
     recitations: recitationsitem[]
 }
 
-export default function RecitationItem({ rec, setRecitation }: { rec: recitationsitem, setRecitation: React.Dispatch<React.SetStateAction<recitationsData | null>> }) {
-    const { setrecitationId } = useMarkRecitationStore()
+export default function RecitationItem({ rec }: { rec: recitationsitem }) {
+
     return (
-        <option id={rec.id} onClick={() => setRecitation(rec.id)} value={rec.id}>{rec.translated_name.name} {rec.style ? `(${rec.style})` : null}</option>
+        <option id={rec.id} value={rec.id}>{rec.translated_name.name} {rec.style ? `(${rec.style})` : null}</option>
     )
 }

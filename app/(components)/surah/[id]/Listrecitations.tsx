@@ -35,7 +35,7 @@ export default function Listrecitations() {
         <div>
             <select name="recitationsitem" value={recitationId} id="" onChange={(e) => handleSelectRecitation(e.target.value)} >
                 {
-                    recitation.recitations.map((rec, i) => <RecitationItem key={i} rec={rec} setRecitation={setRecitation} />)
+                    recitation.recitations.map((rec, i) => <RecitationItem key={i} rec={rec} />)
                 }
             </select>
         </div>
