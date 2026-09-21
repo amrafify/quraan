@@ -32,8 +32,11 @@ export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idS
                 <Link href="/" >
                     <Image src={logo} alt="Logo" width={200} height={200} />
                 </Link>
-                <Listrecitations />
-                <audio src={audioPlay} controls></audio>
+                <div className='hidden md:block landscape:block '>
+
+                    <Listrecitations />
+                </div>
+                <audio className='hidden md:block landscape:block' src={audioPlay} controls></audio>
                 <SearchAyah totalVerses={surahsdd?.length || 0} />
             </div>
         </nav>
