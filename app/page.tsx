@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useMarkSurahStore, useMarkPageStore, useMarkAyahStore } from "./(components)/store/uesMarkSurah";
 import hero from '@app/public/hero.png'
 import { useEffect, useRef, useState } from "react";
+import { AspectRatio } from "@app/components/ui/aspect-ratio";
 export default function Home() {
   const { markSurah, name, nameArbic } = useMarkSurahStore();
   const { pageSruha } = useMarkPageStore();
   const { ayahId } = useMarkAyahStore();
-
   return (
     <div className="bg-gray-100 h-screen">
       {/* <div className="flex flex-col">
@@ -19,18 +19,14 @@ export default function Home() {
           Go to page {pageSruha}
         </Link>
       </div> */}
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between mb-2">
-          <h2>Continue Reading</h2>
-          <Link href='/'>My Quran</Link>
-        </div>
-        <div className="w-[25%]  shadow-2xl rounded-xl bg-white">
-          <h1 className="p-5 text-3xl font-bold fontsurahnames">{nameArbic}</h1>
-          <Link href={`/surah/${markSurah}?name=${name}#${ayahId}`} className="flex rounded-b-xl rounded-t-none justify-between p-5 hover:bg-gray-200  transition-all">
-            <h3>{name}</h3>
-            <h3>{ayahId || 'ayah-1'}</h3>
-          </Link>
-        </div>
-      </div>
+      <AspectRatio ratio={16 / 9} className="w-full max-w-xs  rounded-lg bg-white shadow-2xl m-4 ">
+
+        <h1 className="p-5 text-start text-3xl font-bold fontsurahnames">{nameArbic}</h1>
+        <Link href={`/surah/${markSurah}?name=${name}#${ayahId}`} className="flex rounded-b-xl rounded-t-none justify-between p-5 hover:bg-gray-200  transition-all">
+          <h3>{name}</h3>
+          <h3>{ayahId || 'ayah-1'}</h3>
+        </Link>
+
+      </AspectRatio>
     </div>)
 }
