@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import Cookies from 'js-cookie'
 interface MarkSurahState {
-    markSurah: string,
+    markSurah: string | number,
     name: string,
     nameArbic: string,
     setMarkSurah: (markSurah: string | number, name: string, nameArbic?: string) => void
