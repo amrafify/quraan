@@ -17,7 +17,7 @@ export default async function Surha({ params, searchParams }: { params: Promise<
     const titleSruha = <Title title={id} />
     return (
         <>
-            <Detailes params={Number(id)} surahsdd={surahsdd} surahs={surahs} surahName={name} titleSruha={titleSruha} nameArabic={currentSurah.name_arabic} />
+            <Detailes params={id} surahsdd={surahsdd} surahs={surahs} surahName={name} titleSruha={titleSruha} nameArabic={currentSurah.name_arabic} />
         </>
     )
 }

@@ -11,7 +11,7 @@ import SurahDe from "./SurahDe";
 //     text_uthmani: string;
 // }
 interface DetailesProps {
-    params: number,
+    params: string,
     surahsdd: [{
         id: number;
         name_arabic: string;

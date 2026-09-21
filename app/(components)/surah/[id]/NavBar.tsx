@@ -13,14 +13,14 @@ interface surahsd {
     name_simple: string;
     text_uthmani: string;
 }
-export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idSurah: number }) {
+export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idSurah: string }) {
     const { recitationId } = useMarkRecitationStore()
     useEffect(() => {
         handlePlaySarheAudio(idSurah, recitationId)
     }, [recitationId])
     const [audioPlay, setAudioPlay] = useState<string | undefined>(undefined);
     // sarh audio
-    const handlePlaySarheAudio = async (surahId: number, recitationId: number) => {
+    const handlePlaySarheAudio = async (surahId: string | number, recitationId: number) => {
         const dataAudio = await audioSarhApi(surahId, recitationId)
         console.log(dataAudio.audio_file.audio_url);
         const dataAudioUrl = dataAudio.audio_file.audio_url

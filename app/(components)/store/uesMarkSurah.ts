@@ -2,10 +2,10 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import Cookies from 'js-cookie'
 interface MarkSurahState {
-    markSurah: number,
+    markSurah: string,
     name: string,
     nameArbic: string,
-    setMarkSurah: (markSurah: number, name: string, nameArbic?: string) => void
+    setMarkSurah: (markSurah: string | number, name: string, nameArbic?: string) => void
 }
 interface MarkSurahpage {
     pageSruha: number,
@@ -23,7 +23,7 @@ interface MarkRecitationState {
 export const useMarkSurahStore = create<MarkSurahState>()(
     persist(
         (set) => ({
-            markSurah: 1,
+            markSurah: '001',
             name: "Al-Fatiha",
             nameArbic: 'surah001',
             setMarkSurah: (markSurah, name, nameArbic) => set({ markSurah, name, nameArbic })

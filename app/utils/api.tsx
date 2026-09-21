@@ -84,7 +84,7 @@ export async function audioApi(ayahId: string = "1:2", audioId: number = 1) {
     }
 }
 // جلب صوت سوره كامله
-export async function audioSarhApi(sharhId: number = 1, audioId: number = 1) {
+export async function audioSarhApi(sharhId: string | number = 1, audioId: number = 1) {
     try {
         const res = await fetch(`${API_URL}/chapter_recitations/${audioId}/${sharhId}`); // Fetch the audio 
         const data = await res.json();
