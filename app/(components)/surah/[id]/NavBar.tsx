@@ -34,10 +34,10 @@ export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idS
                 <Link href="/" >
                     <Image src={logo} alt="Logo" width={200} height={200} />
                 </Link>
-                <div className='hidden md:block landscape:block '>
 
-                    <Listrecitations />
-                </div>
+
+                <Listrecitations />
+
                 <div className='hidden md:block landscape:block'>
 
                     <CustomAudioPlayer audioUrl={`${audioPlay}`} />
