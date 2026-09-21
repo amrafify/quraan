@@ -94,7 +94,7 @@ export default function SurahDe({ surah, i }: { surah: surah; i: number }) {
                     </div>
                 }
             >
-                <span onClick={handleClick} id={`ayah-${i + 1}`} className={`font-quran ml-2 transition-all duration-700 leading-[2.5] cursor-pointer rounded-lg p-1`}>
+                <span id={`ayah-${i + 1}`} className={`font-quran ml-2 transition-all duration-700 leading-[2.5] rounded-lg p-1`}>
                     {surah.text_uthmani} <span className="text-sm text-blue-400">{isBookmarked && `🔖`}  ({i + 1}) </span>
                 </span>
             </Tippy>
