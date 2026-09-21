@@ -7,6 +7,8 @@ import Link from 'next/link'
 import Listrecitations from './Listrecitations'
 import { audioSarhApi } from "@app/app/utils/api";
 import { useMarkRecitationStore } from '../../store/uesMarkSurah'
+import CustomAudioPlayer from '@app/components/ui/coustmaudio'
+
 interface surahsd {
     id: number;
     name_arabic: string;
@@ -36,7 +38,11 @@ export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idS
 
                     <Listrecitations />
                 </div>
-                <audio className='hidden md:block landscape:block' src={audioPlay} controls></audio>
+                <div className='hidden md:block landscape:block'>
+
+                    <CustomAudioPlayer audioUrl={`${audioPlay}`} />
+                </div>
+                {/* <audio className='hidden md:block landscape:block' src={audioPlay} controls></audio> */}
                 <SearchAyah totalVerses={surahsdd?.length || 0} />
             </div>
         </nav>

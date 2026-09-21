@@ -3,6 +3,7 @@ import { recitationsList } from '@app/app/utils/api'
 import React, { useEffect, useState } from 'react'
 import { useMarkRecitationStore } from '../../store/uesMarkSurah'
 import RecitationItem from './RecitationItem'
+import { NativeSelect } from '@app/components/ui/native-select'
 
 interface recitationsitem {
     id: string,
@@ -33,11 +34,11 @@ export default function Listrecitations() {
 
     return (
         <div>
-            <select name="recitationsitem" value={recitationId} id="" onChange={(e) => handleSelectRecitation(e.target.value)} >
+            <NativeSelect name="recitationsitem" value={recitationId} id="" onChange={(e) => handleSelectRecitation(e.target.value)} >
                 {
                     recitation.recitations.map((rec, i) => <RecitationItem key={i} rec={rec} />)
                 }
-            </select>
+            </NativeSelect>
         </div>
     )
 }
