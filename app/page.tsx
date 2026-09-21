@@ -22,7 +22,7 @@ export default function Home() {
       <AspectRatio ratio={16 / 9} className="w-full max-w-xs  rounded-lg bg-white shadow-2xl m-4 ">
 
         <h1 className="p-5 text-start text-3xl font-bold fontsurahnames">{nameArbic}</h1>
-        <Link href={`/surah/${markSurah}?name=${name}#${ayahId}`} className="flex rounded-b-xl rounded-t-none justify-between p-5 hover:bg-gray-200  transition-all">
+        <Link href={`/surah/${markSurah}?name=${name}#${ayahId}`} className="flex rounded-b-xl rounded-t-none justify-between p-5 hover:bg-gray-200  transition-all font-bold font-mono">
           <h3>{name}</h3>
           <h3>{ayahId || 'ayah-1'}</h3>
         </Link>
