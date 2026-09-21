@@ -17,8 +17,8 @@ export default function AyahSearch({ totalVerses }: { totalVerses: number }) {
     };
     const ayahNumbers = Array.from({ length: totalVerses }, (_, i) => i + 1);
     return (
-        <div className=" max-w-xs flex flex-col w-[25%] " dir="rtl">
-            <label htmlFor="listAyahs">اختيار الآية</label>
+        <div className=" max-w-xs flex flex-row items-center gap-2 w-[25%] " dir="rtl">
+            <label htmlFor="listAyahs"> الآية</label>
             <div className="w-full relative">
                 <input
                     list="ayahs-list"
@@ -37,6 +37,7 @@ export default function AyahSearch({ totalVerses }: { totalVerses: number }) {
                     ))}
                 </datalist>
             </div>
+
         </div>
     );
 }
