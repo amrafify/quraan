@@ -6,7 +6,7 @@ import logo from '@app/public/logo.png'
 import Link from 'next/link'
 import Listrecitations from './Listrecitations'
 import { audioSarhApi } from "@app/app/utils/api";
-import { useMarkRecitationStore } from '../../store/uesMarkSurah'
+import { useMarkRecitationStore, useMarkrevelationplaceStore } from '../../store/uesMarkSurah'
 import CustomAudioPlayer from '@app/components/ui/coustmaudio'
 
 interface surahsd {
@@ -17,6 +17,7 @@ interface surahsd {
 }
 export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idSurah: string }) {
     const { recitationId } = useMarkRecitationStore()
+    const { setrevelationplaceId } = useMarkrevelationplaceStore()
     useEffect(() => {
         handlePlaySarheAudio(idSurah, recitationId)
     }, [recitationId])
@@ -31,7 +32,7 @@ export default function NavBar({ surahsdd, idSurah }: { surahsdd: [surahsd], idS
     return (
         <nav className="">
             <div className="w-full p-4 bg-[#faf5e0] flex items-center justify-between pr-20 lg:pr-80">
-                <Link href="/" >
+                <Link href="/" onClick={() => setrevelationplaceId("all")} >
                     <Image src={logo} alt="Logo" width={200} height={200} />
                 </Link>
 

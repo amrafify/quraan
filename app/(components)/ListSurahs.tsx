@@ -24,7 +24,6 @@ export default function SurahsSidebar({ surahs }: SidebarProps) {
     const { setrevelationplaceId, revelationplaceState } = useMarkrevelationplaceStore()
     const [revelationplace, setRevelationplace] = useState(revelationplaceState);
     useEffect(() => {
-        // setRevelationplace(revelationplaceState)
         setrevelationplaceId(revelationplace)
     }, [revelationplace])
     return (
