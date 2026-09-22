@@ -1,11 +1,12 @@
 'use client'
-import { useMarkAyahStore, useMarkRecitationStore } from "../../store/uesMarkSurah";
+import { useMarkAyahStore, useMarkRecitationStore, useMarkSurahStore } from "../../store/uesMarkSurah";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { followCursor } from 'tippy.js';
 import { useState } from 'react';
 import { audioApi, audioSarhApi } from "@app/app/utils/api";
 import { id } from "zod/locales";
+import { string } from "zod";
 
 type surah = {
     id: number;
@@ -14,13 +15,18 @@ type surah = {
     text_uthmani: string;
     verse_key: string
 }
-export default function SurahDe({ surah, i }: { surah: surah; i: number }) {
+export default function SurahDe({ surah, i, params, surahId }: { surah: surah; i: number; params: number, surahId: number }) {
     const { recitationId } = useMarkRecitationStore()
     const { setAyahId, ayahId } = useMarkAyahStore();
+    const { markSurah } = useMarkSurahStore();
     // 1. تحديد معرف الآية الحالية
     const currentAyahId = `ayah-${i + 1}`;
     // 2. التحقق المباشر: هل هذه الآية هي المخزنة في Zustand / LocalStorage؟
-    const isBookmarked = ayahId === currentAyahId;
+    let isBookmarked = '';
+    if (ayahId === currentAyahId && params == markSurah) {
+        isBookmarked = ayahId
+    }
+
     function handleClick() {
         // setAyahId(`ayah-${i + 1}`)
 
@@ -37,6 +43,8 @@ export default function SurahDe({ surah, i }: { surah: surah; i: number }) {
             setAyahId(currentAyahId); // حفظ الآية الحالية
         }
         console.log(isBookmarked);
+        console.log(params);
+        console.log(markSurah);
 
     }
     // ayah audio
