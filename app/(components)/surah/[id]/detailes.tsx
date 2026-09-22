@@ -41,8 +41,8 @@ export default function Detailes({ params, surahsdd, surahs, surahName, titleSru
             <div className={`lg:pr-72`}>
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                     {titleSruha}
-
-                    <h3 className='text-center font-bold'>بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</h3>
+                    {/* البسمله و عدم ظهورها في سوره الفاتحه */}
+                    {params === "001" || params === "01" || params === "1" ? null : <h3 className='text-center font-bold'>بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</h3>}
                     <div className="space-y-4 leading-loose text-xl m-3 text-center">
                         {surahsdd?.map((surah: any, i: number) => (
                             <SurahDe key={surah.id} surah={surah} i={i} />

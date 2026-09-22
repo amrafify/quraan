@@ -24,9 +24,7 @@ export default function AyahSearch({ totalVerses }: { totalVerses: number }) {
 
             setTimeout(() => {
                 element.classList.remove('bg-green-100', 'scale-105', 'transition-all', 'duration-300');
-            }, 2000);
-
-            setAyahId(`ayah-${ayahNumber}`);
+            }, 1000);
         }
     };
 
