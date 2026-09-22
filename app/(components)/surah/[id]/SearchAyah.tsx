@@ -39,6 +39,7 @@ export default function AyahSearch({ totalVerses }: { totalVerses: number }) {
             }}
         >
             <ComboboxInput
+                type="number"
                 placeholder="أختار الآية"
                 onChange={(e) => {
                     // في حال كانت الكتابة اليدوية مباشرة في الـ Input
@@ -47,7 +48,7 @@ export default function AyahSearch({ totalVerses }: { totalVerses: number }) {
             />
             <ComboboxContent>
                 <ComboboxEmpty>لا توجد آية بهذا الرقم</ComboboxEmpty>
-                <ComboboxList>
+                <ComboboxList >
                     {(item) => (
                         <ComboboxItem
                             key={item}
