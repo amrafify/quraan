@@ -1,7 +1,8 @@
 'use client'; // ضروري لأننا هنستخدم useState وتفاعل
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ListSurahsItem from './ListSurahsItem';
+import { useMarkrevelationplaceStore } from './store/uesMarkSurah';
 
 // افترضت أن الـ Type بتاع السورة اسمه surahss زي ما أنت كاتبه
 interface surahss {
@@ -20,8 +21,12 @@ export default function SurahsSidebar({ surahs }: SidebarProps) {
     // State للتحكم في ظهور السايدبار على الموبايل
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenlgpage, setIsOpenlgpage] = useState(false);
-    const [revelationplace, setRevelationplace] = useState('all');
-
+    const { setrevelationplaceId, revelationplaceState } = useMarkrevelationplaceStore()
+    const [revelationplace, setRevelationplace] = useState(revelationplaceState);
+    useEffect(() => {
+        // setRevelationplace(revelationplaceState)
+        setrevelationplaceId(revelationplace)
+    }, [revelationplace])
     return (
         <>
             {/* 1. زرار التوجل (Toggle Button) - يظهر فقط في الشاشات الصغيرة lg:hidden */}
@@ -61,7 +66,7 @@ export default function SurahsSidebar({ surahs }: SidebarProps) {
                         <p className="text-xs text-gray-400 mt-1">اختر السورة لبدء القراءة</p>
                     </div>
                     <div>
-                        <select name="" id="" value={revelationplace} onChange={(e) => setRevelationplace(e.target.value)}>
+                        <select name="" id="" value={revelationplaceState} onChange={(e) => setRevelationplace(e.target.value)}>
                             <option value="all" onClick={() => setRevelationplace('all')}>كل السور</option>
                             <option value="makkah" onClick={() => setRevelationplace('makkah')}>السور المكية</option>
                             <option value="madinah" onClick={() => setRevelationplace('madinah')}>السور المدنية</option>

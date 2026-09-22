@@ -20,6 +20,10 @@ interface MarkRecitationState {
     recitationId: number
     setrecitationId: (recitationId: number) => void
 }
+interface MarkrevelationplaceId {
+    revelationplaceState: string
+    setrevelationplaceId: (revelationplaceId: string) => void
+}
 export const useMarkSurahStore = create<MarkSurahState>()(
     persist(
         (set) => ({
@@ -62,6 +66,16 @@ export const useMarkRecitationStore = create<MarkRecitationState>()(
             setrecitationId: (recitationId) => set({ recitationId }),
         }), {
         name: "mark-recitationId"
+    }
+    )
+)
+export const useMarkrevelationplaceStore = create<MarkrevelationplaceId>()(
+    persist(
+        (set) => ({
+            revelationplaceState: 'all',
+            setrevelationplaceId: (revelationplaceState) => set({ revelationplaceState }),
+        }), {
+        name: "mark-revelationplace"
     }
     )
 )
