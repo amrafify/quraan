@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useMarkSurahStore, useMarkPageStore, useMarkAyahStore } from "./(components)/store/uesMarkSurah";
+import { useMarkSurahStore, useMarkPageStore, useMarkAyahStore, useMarkrevelationplaceStore } from "./(components)/store/uesMarkSurah";
 import hero from '@app/public/hero.png'
 import { useEffect, useRef, useState } from "react";
 import { AspectRatio } from "@app/components/ui/aspect-ratio";
@@ -9,6 +9,10 @@ export default function Home() {
   const { markSurah, name, nameArbic } = useMarkSurahStore();
   const { pageSruha } = useMarkPageStore();
   const { ayahId } = useMarkAyahStore();
+  const { setrevelationplaceId } = useMarkrevelationplaceStore()
+  useEffect(() => {
+    setrevelationplaceId('all')
+  }, [])
   return (
     <div className="bg-gray-100 h-screen">
       {/* <div className="flex flex-col">
