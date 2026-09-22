@@ -5,7 +5,7 @@ import React from 'react'
 import makkah from '../../public/kaaba.png';
 import madinah from '../../public/madinah-saudi-arabia.png';
 import Image from 'next/image';
-import { useMarkAyahStore } from './store/uesMarkSurah';
+import { useMarkAyahStore, useMarkSurahStore } from './store/uesMarkSurah';
 
 type Props = {
     id: number;
@@ -21,6 +21,7 @@ export default function ListSurahsItem({ surahs }: { surahs: Props }) {
     const currentSurahId = params?.id ? Number(params.id) : undefined;
 
     const isActive = currentSurahId === surahs.id;
+    const { markSurah } = useMarkSurahStore();
 
     return (
         <Link
@@ -35,7 +36,9 @@ export default function ListSurahsItem({ surahs }: { surahs: Props }) {
             {/* اسم السورة بالكامل */}
 
             <span className="font-serif text-base flex items-center gap-1 justify-center"><span>{surahs.revelation_place == 'makkah' ? <Image src={makkah} alt="Makkah" className="w-4 h-4 mr-1" /> : surahs.revelation_place == 'madinah' && <Image src={madinah} alt="Madinah" className="w-6 h-6 " />}</span>{surahs.name_arabic} <span className="text-gray-500"> (عدد آياتها: {surahs.verses_count})</span></span>
-
+            <span className=' '>
+                {surahs.id == markSurah && '🔖'}
+            </span>
             {/* رقم السورة يظهر كـ Badge خفيف في الجنب */}
             <span className={`inline-flex items-center justify-center text-xs font-sans w-5 h-5 rounded-md border transition-colors
                 ${isActive

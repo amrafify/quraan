@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import ListSurahsItem from './ListSurahsItem';
-import { useMarkrevelationplaceStore } from './store/uesMarkSurah';
+import { useMarkrevelationplaceStore, useMarkSurahStore } from './store/uesMarkSurah';
 
 // افترضت أن الـ Type بتاع السورة اسمه surahss زي ما أنت كاتبه
 interface surahss {
@@ -26,6 +26,9 @@ export default function SurahsSidebar({ surahs }: SidebarProps) {
     useEffect(() => {
         setrevelationplaceId(revelationplace)
     }, [revelationplace])
+    const { markSurah } = useMarkSurahStore();
+    console.log(markSurah);
+
     return (
         <>
             {/* 1. زرار التوجل (Toggle Button) - يظهر فقط في الشاشات الصغيرة lg:hidden */}
@@ -89,7 +92,10 @@ export default function SurahsSidebar({ surahs }: SidebarProps) {
                         return (
                             // تريكة UX: لما يضغط على سورة في الموبايل، السايدبار يقفل تلقائياً
                             <div key={surah.id} onClick={() => setIsOpen(false)}>
-                                <ListSurahsItem surahs={surah} />
+                                <div>
+                                    <ListSurahsItem surahs={surah} />
+
+                                </div>
                             </div>
                         );
                     })}

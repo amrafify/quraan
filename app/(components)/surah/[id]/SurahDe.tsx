@@ -28,15 +28,6 @@ export default function SurahDe({ surah, i, params, surahId }: { surah: surah; i
     }
 
     function handleClick() {
-        // setAyahId(`ayah-${i + 1}`)
-
-        // if (isBookmarked) {
-        //     setAyahId('')
-        // }
-        // if (ayahId !== '') {
-        //     setIsBookmarked(true)
-        // }
-        // setIsBookmarked(!isBookmarked)
         if (isBookmarked) {
             setAyahId(''); // إلغاء العلامة إذا كانت محفوظة بالفعل
         } else {
